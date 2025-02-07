@@ -1,0 +1,6 @@
+framework module fl_pip {
+  umbrella header "fl_pip-umbrella.h"
+
+  export *
+  module * { export * }
+}
