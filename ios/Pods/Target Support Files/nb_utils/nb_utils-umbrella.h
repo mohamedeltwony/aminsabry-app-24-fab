@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "NbUtilsPlugin.h"
 
 FOUNDATION_EXPORT double nb_utilsVersionNumber;
 FOUNDATION_EXPORT const unsigned char nb_utilsVersionString[];
