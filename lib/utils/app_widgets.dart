@@ -558,6 +558,7 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
                     children: [
                       if (widget.text!.data != '')
                         Row(
+                          textDirection: Directionality.of(context),
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Opacity(
@@ -567,13 +568,15 @@ class _ButtonState extends State<Button> with TickerProviderStateMixin {
                             Container(
                               child: Container(
                                 child: Align(
-                                  alignment: Alignment.centerRight,
+                                  alignment: Directionality.of(context) == TextDirection.rtl ? Alignment.centerLeft : Alignment.centerRight,
                                   widthFactor: curveValue,
                                   child: Container(
                                     child: Opacity(
                                       opacity: _expanded ? pow(expandController.value, 13) as double : expandController.drive(CurveTween(curve: Curves.easeIn)).value,
                                       child: Padding(
-                                        padding: EdgeInsets.only(left: widget.gap! + 8 - (8 * expandController.drive(CurveTween(curve: Curves.easeOutSine)).value), right: 8 * expandController.drive(CurveTween(curve: Curves.easeOutSine)).value),
+                                        padding: Directionality.of(context) == TextDirection.rtl
+                                            ? EdgeInsets.only(right: widget.gap! + 8 - (8 * expandController.drive(CurveTween(curve: Curves.easeOutSine)).value), left: 8 * expandController.drive(CurveTween(curve: Curves.easeOutSine)).value)
+                                            : EdgeInsets.only(left: widget.gap! + 8 - (8 * expandController.drive(CurveTween(curve: Curves.easeOutSine)).value), right: 8 * expandController.drive(CurveTween(curve: Curves.easeOutSine)).value),
                                         child: widget.text,
                                       ),
                                     ),
