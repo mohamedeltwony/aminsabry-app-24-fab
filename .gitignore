@@ -26,6 +26,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+**/build/
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -70,6 +71,7 @@ migrate_working_dir/
 
 # Coverage
 coverage/
+*.lcov
 
 # Symbols
 app.*.symbols
